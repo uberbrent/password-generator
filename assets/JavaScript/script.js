@@ -42,6 +42,7 @@ function generatePassword() {
     }
 
   while (password <= passwordLength) {
+    
     let password = '';
 
     for (let i = 0; i < passwordLength; i++) {
