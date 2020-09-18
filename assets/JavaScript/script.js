@@ -41,7 +41,9 @@ function generatePassword() {
       let newLength = charArray.push('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
     }
 
-  while (password <= passwordLength) {
+    var password = '';
+
+  while (password.length < passwordLength) {
     
     let password = '';
 
@@ -49,8 +51,9 @@ function generatePassword() {
       password = password + charArray[Math.floor(Math.random() * charArray.length)];
       console.log(password)
     }
+    return password
   }
-  return password
+ 
 }
 
 debugger;
