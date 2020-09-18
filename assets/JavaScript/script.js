@@ -8,7 +8,7 @@
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-var charArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var charArray = [];
 
 
 
@@ -25,23 +25,38 @@ function writePassword() {
 function generatePassword() {
 
   var passwordLength = window.prompt("Please choose a password length between 8 and 128 characters.")
-
-  var specChar = window.confirm("Would you like to add special characters?")
-    if (specChar === true) { 
-      let newLength = charArray.push('!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '_', '{', '|', '}', '~');
+    if (passwordLength < 8 || passwordLength > 128) {
+      window.alert("Please enter a valid number!")
+      return generatePassword();
     }
 
-  var intChar = window.confirm("Would you like to add numbers?")
-    if (intChar === true) {
-      let newLength = charArray.push('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+    var lowerChar = window.confirm("Would you like to add lower case letters?")
+    if (lowerChar === true) {
+      let newLength = charArray.push('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z')
     }
 
-  var upperChar = window.confirm("Would you like to add capital letters?")
+    var upperChar = window.confirm("Would you like to add upper case letters?")
     if (upperChar === true) {
       let newLength = charArray.push('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z');
     }
 
-    var password = '';
+    var intChar = window.confirm("Would you like to add numbers?")
+    if (intChar === true) {
+      let newLength = charArray.push('0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+    }
+
+    var specChar = window.confirm("Would you like to add special characters?")
+    if (specChar === true) { 
+      let newLength = charArray.push('!', '#', '$', '%', '&', '(', ')', '*', '+', ',', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', ']', '_', '{', '|', '}', '~');
+    }
+
+    if (charArray.length === 0) {
+      window.alert("Please make at least one selection!")
+      return generatePassword();
+    }
+
+
+      var password = '';
 
   while (password.length < passwordLength) {
     
