@@ -7,6 +7,8 @@ This is a custom designed password generator using primarily JavaScript for pass
 
 ## Live Application
 
-You can find the live application at 
+You can find the live application at https://uberbrent.github.io/password-generator/
 
 ## Screenshots
+
+The following is a screen grab of the live application and the main functionality of the JavaScript that powers the randomization.
